@@ -1,4 +1,4 @@
-package jpa
+package persistence
 
 import entity.Member
 import javax.persistence.Persistence
