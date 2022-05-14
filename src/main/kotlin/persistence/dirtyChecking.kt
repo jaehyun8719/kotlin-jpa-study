@@ -15,13 +15,12 @@ fun main() {
         memberA.id = 1L
         memberA.name = "helloA"
 
-        var memberB = Member()
-        memberB.id = 2L
-        memberB.name = "helloB"
-
         em.persist(memberA)
-        em.persist(memberB)
-        println("=============== persist")
+        // 강제 DB Insert
+        em.flush()
+
+        val member = em.find(Member::class.java, 1L)
+        member.name = "helloUpdate"
 
         tx.commit()
     } catch (e: Exception) {
