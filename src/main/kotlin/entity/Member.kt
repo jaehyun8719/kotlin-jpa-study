@@ -1,11 +1,19 @@
 package entity
 
-import javax.persistence.Entity
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
-class Member{
+class Member {
     @Id
+    @GeneratedValue
+    @Column(name = "MEMBER_ID")
     var id: Long? = null
+
     var name: String? = null
+
+    var city: String? = null
+
+    var street: String? = null
+
+    var zipcode: String? = null
 }
