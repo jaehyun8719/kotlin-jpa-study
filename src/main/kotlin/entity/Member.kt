@@ -15,4 +15,9 @@ class Member {
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     var team: Team? = null
+
+    fun changeTeam(team: Team) {
+        this.team = team;
+        team.members.add(this)
+    }
 }

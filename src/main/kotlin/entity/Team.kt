@@ -1,9 +1,6 @@
 package entity
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 class Team {
@@ -12,5 +9,9 @@ class Team {
     @Column(name = "TEAM_ID")
     var id: Long? = null
 
+    @Column(name = "NAME")
     var name: String? = null
+
+    @OneToMany(mappedBy = "team")
+    var members: MutableList<Member> = arrayListOf()
 }

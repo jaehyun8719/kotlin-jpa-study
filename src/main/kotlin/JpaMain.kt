@@ -17,14 +17,17 @@ fun main() {
 
         var member = Member()
         member.username = "member1"
-        member.team = team
+        member.changeTeam(team)
         em.persist(member)
 
-        val findMember = em.find(Member::class.java, member.id)
+        em.flush()
+        em.clear()
 
-        val findTeam = findMember.team
-        if (findTeam != null) {
-            println("findTeam = " + findTeam.name)
+        val findMember = em.find(Member::class.java, member.id)
+        val members = findMember.team?.members
+
+        members?.forEach {
+            println("member = " + it.toString())
         }
 
         tx.commit()
