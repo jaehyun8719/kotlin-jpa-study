@@ -9,11 +9,15 @@ class Member {
     @Column(name = "MEMBER_ID")
     var id: Long? = null
 
-    var name: String? = null
+    @Column(name = "USERNAME")
+    var username: String? = null
 
-    var city: String? = null
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    var team: Team? = null
 
-    var street: String? = null
-
-    var zipcode: String? = null
+    fun changeTeam(team: Team) {
+        this.team = team;
+        team.members.add(this)
+    }
 }
