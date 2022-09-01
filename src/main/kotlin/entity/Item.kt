@@ -3,15 +3,14 @@ package entity
 import javax.persistence.*
 
 @Entity
-class Item {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+abstract class Item(
     @Id
     @GeneratedValue
-    @Column(name = "ITEM_ID")
-    var id: Long? = null
+    var id: Long? = null,
 
-    var name: String? = null
+    var name: String? = null,
 
-    var price: Int? = null
-
-    var stockQuantity: Int? = null
+    var price: Int? = null,
+) {
 }
