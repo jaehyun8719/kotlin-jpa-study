@@ -1,5 +1,4 @@
-import entity.Member
-import entity.Team
+import entity.Movie
 import javax.persistence.Persistence
 
 fun main() {
@@ -10,25 +9,17 @@ fun main() {
     tx.begin()
 
     try {
-        // 저장
-        var team = Team()
-        team.name = "TeamA"
-        em.persist(team)
+        val movie = Movie("a", "bbb")
+        movie.name = "바람과함꼐 사라지다"
+        movie.price = 10000
 
-        var member = Member()
-        member.username = "member1"
-        member.changeTeam(team)
-        em.persist(member)
+        em.persist(movie)
 
         em.flush()
         em.clear()
 
-        val findMember = em.find(Member::class.java, member.id)
-        val members = findMember.team?.members
-
-        members?.forEach {
-            println("member = " + it.toString())
-        }
+        val findMovie = em.find(Movie::class.java, movie.id)
+        println("findMove = $findMovie")
 
         tx.commit()
     } catch (e: Exception) {

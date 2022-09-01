@@ -3,19 +3,19 @@ package entity
 import javax.persistence.*
 
 @Entity
-class Member {
+class Member (
     @Id
     @GeneratedValue
     @Column(name = "MEMBER_ID")
-    var id: Long? = null
+    var id: Long? = null,
 
     @Column(name = "USERNAME")
-    var username: String? = null
+    var username: String? = null,
 
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
-    var team: Team? = null
-
+    var team: Team? = null,
+) : BaseEntity() {
     fun changeTeam(team: Team) {
         this.team = team;
         team.members.add(this)
