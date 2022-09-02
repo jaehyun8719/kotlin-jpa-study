@@ -11,11 +11,11 @@ class Member (
 
     @Column(name = "USERNAME")
     var username: String? = null,
-
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
-    var team: Team? = null,
 ) : BaseEntity() {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "TEAM_ID")
+    var team: Team? = null
+
     fun changeTeam(team: Team) {
         this.team = team;
         team.members.add(this)
