@@ -10,3 +10,5 @@ Branch
 3-relation-mapping/2-basic-mapping-two-way: 양방향 맵핑 </br>
 </br>
 4-advanced-mapping/1-inheritance-mapping: 고급매핑 @MappedSuperclass </br>
+</br>
+5-proxy-mapping/1-lazy-eager </br>
