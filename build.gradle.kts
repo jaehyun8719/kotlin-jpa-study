@@ -2,6 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.5.31"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.5.31"
+}
+
+allOpen {
+    annotation("javax.persistence.Entity")
 }
 
 group = "jpa-basic"
