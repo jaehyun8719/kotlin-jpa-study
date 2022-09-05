@@ -12,3 +12,5 @@ Branch
 4-advanced-mapping/1-inheritance-mapping: 고급매핑 @MappedSuperclass </br>
 </br>
 5-proxy-mapping/1-lazy-eager </br>
+5-proxy-mapping/2-cascade-orphan</br>
+</br>
