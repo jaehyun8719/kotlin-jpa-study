@@ -1,5 +1,5 @@
-import entity.Member
-import entity.Team
+import entity.Child
+import entity.Parent
 import javax.persistence.Persistence
 
 fun main() {
@@ -10,22 +10,20 @@ fun main() {
     tx.begin()
 
     try {
-        val team = Team(
-            name = "team1"
-        )
-        em.persist(team)
+        var child1 = Child()
+        var child2 = Child()
 
-        val member = Member(
-            username = "member1",
-        )
-        member.team = team
-        em.persist(member)
+        var parent = Parent()
+        parent.addChild(child1)
+        parent.addChild(child2)
+
+        em.persist(parent)
 
         em.flush()
         em.clear()
 
-        val findMember = em.find(Member::class.java, member.id)
-        println("findMember = ${findMember.team!!.javaClass}")
+        val findParent = em.find(Parent::class.java, parent.id)
+        findParent.childList?.removeFirst()
 
         tx.commit()
     } catch (e: Exception) {
