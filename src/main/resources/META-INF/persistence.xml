@@ -9,6 +9,8 @@
         <class>entity.Album</class>
         <class>entity.Movie</class>
         <class>entity.Book</class>
+        <class>entity.Parent</class>
+        <class>entity.Child</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

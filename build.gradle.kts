@@ -7,6 +7,7 @@ plugins {
 
 allOpen {
     annotation("javax.persistence.Entity")
+    annotation("javax.persistence.MappedSuperclass")
 }
 
 group = "jpa-basic"
