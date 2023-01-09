@@ -6,18 +6,17 @@ import javax.persistence.*
 class Member (
     @Id
     @GeneratedValue
-    @Column(name = "MEMBER_ID")
     var id: Long? = null,
 
-    @Column(name = "USERNAME")
+    @Column
     var username: String? = null,
-) : BaseEntity() {
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "TEAM_ID")
-    var team: Team? = null
 
-    fun changeTeam(team: Team) {
-        this.team = team;
-        team.members.add(this)
-    }
+    // 기간 Period
+    @Embedded
+    var workPeriod: Period? = null,
+
+    // 주소 address
+    @Embedded
+    var homeAddress: Address? = null,
+) {
 }

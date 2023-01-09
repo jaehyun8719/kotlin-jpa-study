@@ -12,6 +12,5 @@ class Team (
     @Column(name = "NAME")
     var name: String? = null,
 ){
-    @OneToMany(mappedBy = "team")
-    var members: MutableList<Member> = arrayListOf()
+
 }
