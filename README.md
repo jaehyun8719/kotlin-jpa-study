@@ -14,3 +14,4 @@ Branch
 5-proxy-mapping/1-lazy-eager </br>
 5-proxy-mapping/2-cascade-orphan</br>
 </br>
+6-value-type/1-embedded-type </br>
